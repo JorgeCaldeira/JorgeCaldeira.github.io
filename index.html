@@ -74,14 +74,22 @@
 
         let startTime = new Date();
 
-        function submitQuiz() {
+       function submitQuiz() {
             const email = document.getElementById("email").value;
+            const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+            // Validação de email
+            if (!emailPattern.test(email)) {
+                alert("Por favor, insira um email válido.");
+                return;
+            }
+
             const endTime = new Date();
             const timeTaken = Math.round((endTime - startTime) / 1000); // Tempo em segundos
 
             let score = 0;
 
-            for (const [question, answer] of Object.entries(correctAnswers)) {
+           for (const [question, answer] of Object.entries(correctAnswers)) {
                 const selected = document.querySelector(`input[name="${question}"]:checked`);
                 if (selected && selected.value === answer) {
                     score++;
