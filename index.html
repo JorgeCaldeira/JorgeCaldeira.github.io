@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Escolha Múltipla</title>
+    <title>Quiz Diário SDS'25</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,39 +18,46 @@
     </style>
 </head>
 <body>
-    <h1>Quiz de Escolha Múltipla</h1>
+    <h1>Dia das Comunidades - SDS'25</h1>
     <p>Por favor, insira o seu email:</p>
-    <input type="email" id="email" placeholder="Seu email aqui..." required>
+    <input type="email" id="email" placeholder="Seu email aqui..." required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Por favor, insira um email válido">
     <div id="quiz">
         <div class="question">
-            <p>1. Qual é a capital de Portugal?</p>
-            <input type="radio" name="q1" value="Lisboa"> Lisboa<br>
-            <input type="radio" name="q1" value="Porto"> Porto<br>
-            <input type="radio" name="q1" value="Faro"> Faro<br>
+            <p>1. Qual destes projetos da Ocean Alive trabalha em conjunto com mulheres da comunidade piscatória?</p>
+            <input type="radio" name="q1" value="Mariscar sem lixo"> Mariscar sem lixo<br>
+            <input type="radio" name="q1" value="Sentinelas da água"> Sentinelas da água<br>
+            <input type="radio" name="q1" value="Guardiãs do mar"> Guardiãs do mar<br>
+            <input type="radio" name="q1" value="Oceano azul"> Oceano azul<br>
         </div>
         <div class="question">
-            <p>2. Qual é o maior planeta do Sistema Solar?</p>
-            <input type="radio" name="q2" value="Júpiter"> Júpiter<br>
-            <input type="radio" name="q2" value="Saturno"> Saturno<br>
-            <input type="radio" name="q2" value="Terra"> Terra<br>
+            <p>2. Em que data foi criado o projeto Repair Café? </p>
+            <input type="radio" name="q2" value="12 junho"> 12 de junho de 2016<br>
+            <input type="radio" name="q2" value="18 junho"> 18 de junho de 2016<br>
+            <input type="radio" name="q2" value="10 abril"> 10 de abril de 2015<br>
+            <input type="radio" name="q2" value="20 janeiro"> 20 de janeiro de 2018<br>
+
         </div>
         <div class="question">
-            <p>3. Quem escreveu "Os Lusíadas"?</p>
-            <input type="radio" name="q3" value="Camões"> Luís de Camões<br>
-            <input type="radio" name="q3" value="Pessoa"> Fernando Pessoa<br>
-            <input type="radio" name="q3" value="Saramago"> José Saramago<br>
+            <p>3. Qual é o objetivo da campanha Seabin?</p>
+            <input type="radio" name="q3" value="Depositar"> Fornecer locais onde depositar o lixo, em zonas de praia<br>
+            <input type="radio" name="q3" value="Recolher"> Recolher o lixo marinho dos portos e marinas.<br>
+            <input type="radio" name="q3" value="Beatas"> Campanhas de incentivo à recolha de beatas nas praias.<br>
+            <input type="radio" name="q3" value="Medir"> Medir o nível de poluição das águas.<br>
         </div>
         <div class="question">
-            <p>4. Qual é o elemento químico com símbolo "O"?</p>
-            <input type="radio" name="q4" value="Oxigênio"> Oxigênio<br>
-            <input type="radio" name="q4" value="Hélio"> Hélio<br>
-            <input type="radio" name="q4" value="Nitrogênio"> Nitrogênio<br>
+            <p>4. Em que se baseia a iniciativa VeganBottle?</p>
+            <input type="radio" name="q4" value="Canas"> Disponibilizar garrafas de água feitas a partir de cana de açúcar.<br>
+            <input type="radio" name="q4" value="Recolhas"> Campanhas de recolha de garrafas de água, para a sua reutilização.<br>
+            <input type="radio" name="q4" value="Workshops"> Promover workshops de como reutilizar garrafas de plástico descartáveis.<br>
+            <input type="radio" name="q4" value="Sensibilização"> Campanhas de sensibilização para a natureza poluente do plástico.<br>
         </div>
         <div class="question">
-            <p>5. Quantos lados tem um triângulo?</p>
-            <input type="radio" name="q5" value="3"> 3<br>
-            <input type="radio" name="q5" value="4"> 4<br>
-            <input type="radio" name="q5" value="5"> 5<br>
+            <p>Qual a invenção desenvolvida pelo projeto Zéphyr Solar?</p>
+            <input type="radio" name="q5" value="Painéis"> Painéis solares feitos a partir de materiais reutilizados.<br>
+            <input type="radio" name="q5" value="Balões"> Balões solares, com a função de captação de energia solar.<br>
+            <input type="radio" name="q5" value="Aquecedores"> Aquecedores que funcionam com luz solar.<br>
+            <input type="radio" name="q5" value="Geradores"> Geradores de energia sustentáveis.<br>
+
         </div>
         <button onclick="submitQuiz()">Enviar</button>
     </div>
@@ -58,11 +65,11 @@
 
     <script>
         const correctAnswers = {
-            q1: "Lisboa",
-            q2: "Júpiter",
-            q3: "Camões",
-            q4: "Oxigênio",
-            q5: "3"
+            q1: "Guardiãs do mar",
+            q2: "12 junho",
+            q3: "Recolher",
+            q4: "Canas",
+            q5: "Balões"
         };
 
         let startTime = new Date();
