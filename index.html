@@ -109,7 +109,7 @@ function submitQuiz() {
     const quizData = { email, score, time: timeTaken };
 
     // Send data to the backend API
-    fetch("https://backendquizsds.onrender.com", {
+    fetch("https://backendquizsds.onrender.com/save-quiz", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
