@@ -1,16 +1,91 @@
 <!DOCTYPE html>
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HELLO WORLD</title>
+    <title>Quiz de Escolha Múltipla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <p>O Norte é fixe</p>
-    <button onclick="showMessage()">Confirmar</button>
+    <h1>Quiz de Escolha Múltipla</h1>
+    <p>Por favor, insira o seu email:</p>
+    <input type="email" id="email" placeholder="Seu email aqui..." required>
+    <div id="quiz">
+        <div class="question">
+            <p>1. Qual é a capital de Portugal?</p>
+            <input type="radio" name="q1" value="Lisboa"> Lisboa<br>
+            <input type="radio" name="q1" value="Porto"> Porto<br>
+            <input type="radio" name="q1" value="Faro"> Faro<br>
+        </div>
+        <div class="question">
+            <p>2. Qual é o maior planeta do Sistema Solar?</p>
+            <input type="radio" name="q2" value="Júpiter"> Júpiter<br>
+            <input type="radio" name="q2" value="Saturno"> Saturno<br>
+            <input type="radio" name="q2" value="Terra"> Terra<br>
+        </div>
+        <div class="question">
+            <p>3. Quem escreveu "Os Lusíadas"?</p>
+            <input type="radio" name="q3" value="Camões"> Luís de Camões<br>
+            <input type="radio" name="q3" value="Pessoa"> Fernando Pessoa<br>
+            <input type="radio" name="q3" value="Saramago"> José Saramago<br>
+        </div>
+        <div class="question">
+            <p>4. Qual é o elemento químico com símbolo "O"?</p>
+            <input type="radio" name="q4" value="Oxigênio"> Oxigênio<br>
+            <input type="radio" name="q4" value="Hélio"> Hélio<br>
+            <input type="radio" name="q4" value="Nitrogênio"> Nitrogênio<br>
+        </div>
+        <div class="question">
+            <p>5. Quantos lados tem um triângulo?</p>
+            <input type="radio" name="q5" value="3"> 3<br>
+            <input type="radio" name="q5" value="4"> 4<br>
+            <input type="radio" name="q5" value="5"> 5<br>
+        </div>
+        <button onclick="submitQuiz()">Enviar</button>
+    </div>
+    <p id="result"></p>
 
     <script>
-        function showMessage() {
-            alert("Confirmado");
+        const correctAnswers = {
+            q1: "Lisboa",
+            q2: "Júpiter",
+            q3: "Camões",
+            q4: "Oxigênio",
+            q5: "3"
+        };
+
+        let startTime = new Date();
+
+        function submitQuiz() {
+            const email = document.getElementById("email").value;
+            const endTime = new Date();
+            const timeTaken = Math.round((endTime - startTime) / 1000); // Tempo em segundos
+
+            let score = 0;
+
+            for (const [question, answer] of Object.entries(correctAnswers)) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answer) {
+                    score++;
+                }
+            }
+
+            document.getElementById("result").innerHTML = `
+                Email: ${email}<br>
+                Pontuação: ${score} / 5<br>
+                Tempo para preencher: ${timeTaken} segundos
+            `;
         }
     </script>
 </body>
