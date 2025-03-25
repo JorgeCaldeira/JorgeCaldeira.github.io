@@ -74,34 +74,62 @@
 
         let startTime = new Date();
 
-       function submitQuiz() {
-            const email = document.getElementById("email").value;
-            const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 
-            // Validação de email
-            if (!emailPattern.test(email)) {
-                alert("Por favor, insira um email válido.");
-                return;
-            }
+        
+        
+function submitQuiz() {
+    const email = document.getElementById("email").value;
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 
-            const endTime = new Date();
-            const timeTaken = Math.round((endTime - startTime) / 1000); // Tempo em segundos
+    // Validate email format
+    if (!emailPattern.test(email)) {
+        alert("Por favor, insira um email válido.");
+        return;
+    }
 
-            let score = 0;
+    const endTime = new Date();
+    const timeTaken = Math.round((endTime - startTime) / 1000); // Time in seconds
 
-           for (const [question, answer] of Object.entries(correctAnswers)) {
-                const selected = document.querySelector(`input[name="${question}"]:checked`);
-                if (selected && selected.value === answer) {
-                    score++;
-                }
-            }
+    let score = 0;
 
-            document.getElementById("result").innerHTML = `
-                Email: ${email}<br>
-                Pontuação: ${score} / 5<br>
-                Tempo para preencher: ${timeTaken} segundos
-            `;
+    for (const [question, answer] of Object.entries(correctAnswers)) {
+        const selected = document.querySelector(`input[name="${question}"]:checked`);
+        if (selected && selected.value === answer) {
+            score++;
         }
+    }
+
+    // Display score and time directly on the webpage
+    document.getElementById("result").innerHTML = `
+        <p><b>Pontuação:</b> ${score} / 5</p>
+        <p><b>Tempo para preencher:</b> ${timeTaken} segundos</p>
+    `;
+
+    // Prepare data to send to the backend
+    const quizData = { email, score, time: timeTaken };
+
+    // Send data to the backend API
+    fetch("https://your-backend.onrender.com/save-quiz", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(quizData),
+    })
+        .then(response => {
+            if (response.ok) {
+                alert("Respostas enviadas e armazenadas com sucesso!");
+            } else {
+                alert("Ocorreu um problema ao armazenar as respostas.");
+            }
+        })
+        .catch(error => {
+            console.error("Erro:", error);
+            alert("Ocorreu um erro ao conectar com o servidor. Tente novamente.");
+        });
+}
+
+
     </script>
 </body>
 </html>
