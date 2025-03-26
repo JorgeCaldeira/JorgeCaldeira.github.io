@@ -36,20 +36,51 @@
             <input type="radio" name="q1" value="Guardiãs do mar"> Guardiãs do mar<br>
             <input type="radio" name="q1" value="Oceano azul"> Oceano azul<br>
         </div>
-        <!-- Repeat for other questions -->
+        <div class="question">
+            <p>2. Em que data foi criado o projeto Repair Café? </p>
+            <input type="radio" name="q2" value="12 junho"> 12 de junho de 2016<br>
+            <input type="radio" name="q2" value="18 junho"> 18 de junho de 2016<br>
+            <input type="radio" name="q2" value="10 abril"> 10 de abril de 2015<br>
+            <input type="radio" name="q2" value="20 janeiro"> 20 de janeiro de 2018<br>
+
+        </div>
+        <div class="question">
+            <p>3. Qual é o objetivo da campanha Seabin?</p>
+            <input type="radio" name="q3" value="Depositar"> Fornecer locais onde depositar o lixo, em zonas de praia<br>
+            <input type="radio" name="q3" value="Recolher"> Recolher o lixo marinho dos portos e marinas.<br>
+            <input type="radio" name="q3" value="Beatas"> Campanhas de incentivo à recolha de beatas nas praias.<br>
+            <input type="radio" name="q3" value="Medir"> Medir o nível de poluição das águas.<br>
+        </div>
+        <div class="question">
+            <p>4. Em que se baseia a iniciativa VeganBottle?</p>
+            <input type="radio" name="q4" value="Canas"> Disponibilizar garrafas de água feitas a partir de cana de açúcar.<br>
+            <input type="radio" name="q4" value="Recolhas"> Campanhas de recolha de garrafas de água, para a sua reutilização.<br>
+            <input type="radio" name="q4" value="Workshops"> Promover workshops de como reutilizar garrafas de plástico descartáveis.<br>
+            <input type="radio" name="q4" value="Sensibilização"> Campanhas de sensibilização para a natureza poluente do plástico.<br>
+        </div>
+        <div class="question">
+            <p>5. Qual a invenção desenvolvida pelo projeto Zéphyr Solar?</p>
+            <input type="radio" name="q5" value="Painéis"> Painéis solares feitos a partir de materiais reutilizados.<br>
+            <input type="radio" name="q5" value="Balões"> Balões solares, com a função de captação de energia solar.<br>
+            <input type="radio" name="q5" value="Aquecedores"> Aquecedores que funcionam com luz solar.<br>
+            <input type="radio" name="q5" value="Geradores"> Geradores de energia sustentáveis.<br>
+
+        </div>
         <button onclick="submitQuiz()">Enviar</button>
     </div>
 
     <!-- Page 3: Results -->
     <div id="page-results" class="hidden">
         <p id="result"></p>
-        <button onclick="resetQuiz()">Fazer novamente</button>
     </div>
 
     <script>
         const correctAnswers = {
             q1: "Guardiãs do mar",
-            // Add other questions here...
+            q2: "12 junho",
+            q3: "Recolher",
+            q4: "Canas",
+            q5: "Balões"
         };
 
         let startTime;
